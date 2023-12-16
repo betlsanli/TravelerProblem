@@ -15,14 +15,10 @@ public class Main {
         BufferedReader bf = new BufferedReader(new FileReader(input));
         String type = bf.readLine();
         while(type != null){
-            if(type.equals("Airway")){
-                readMatrix("A", bf);
-            }
-            else if(type.equals("Railway")){
-                readMatrix("R", bf);
-            }
-            else if(type.equals("Highway")){
-                readMatrix("H", bf);
+            switch (type) {
+                case "Airway" -> readMatrix("A", bf);
+                case "Railway" -> readMatrix("R", bf);
+                case "Highway" -> readMatrix("H", bf);
             }
             type = bf.readLine();
         }
@@ -30,7 +26,7 @@ public class Main {
     private static void readMatrix(String type, BufferedReader bf) throws IOException {
         if(graph == null){
             cities = bf.readLine().replace("Cities", "").trim().split(" ");
-            graph = new Graph(cities.length);
+            graph = new Graph(cities.length, cities);
         }
         else //reads cities line
             bf.readLine();

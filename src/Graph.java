@@ -1,24 +1,13 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class Graph {
-
-//    HashMap<String, List<Edge>> adjList;
-//
-//    public Graph(){
-//        adjList = new HashMap<>();
-//    }
-//
-//    public void addEdges(){
-//
-//    }
-
     private ArrayList<ArrayList<String>> matrix;
+    private String[] cities;
 
 
-    public Graph(int cap){
+    public Graph(int cap, String[] cities){
         matrix = new ArrayList<ArrayList<String>>(cap);
+        this.cities = cities;
         initMatrix(cap);
     }
 
