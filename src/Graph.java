@@ -15,7 +15,6 @@ public class Graph {
 
     public void addEdges(String from, String to, TransportationType type){
         network.computeIfAbsent(from, v -> new ArrayList<>()).add(new Edge(to, type));
-
 //        assuming matrix is correct, edges will be bidirectional when edges of to is being added anyway
 //        network.computeIfAbsent(to, v -> new ArrayList<>()).add(new Edge(from, type));
     }
