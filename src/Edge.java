@@ -1,9 +1,9 @@
 public class Edge {
 
     private String toCity;
-    private String type;
+    private TransportationType type;
 
-    public Edge(String toCity, String type){
+    public Edge(String toCity, TransportationType type){
         this.toCity = toCity;
         this.type = type;
     }
@@ -12,12 +12,12 @@ public class Edge {
         return toCity;
     }
 
-    public String getType() {
+    public TransportationType getType() {
         return type;
     }
 
     @Override
     public String toString() {
-        return type + "-" + toCity + " ";
+        return type.abbreviation + "-" + toCity + " ";
     }
 }

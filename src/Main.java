@@ -11,6 +11,11 @@ public class Main {
         System.out.println(graph);
         ArrayList<String> paths = graph.query2("Istanbul", "Ankara", 1);
         System.out.println(paths);
+        paths = graph.query3("Istanbul", "Ankara", TransportationType.HIGHWAY);
+        System.out.println(paths);
+        int[] arr = {1,2,1};
+        String path = graph.query1("Istanbul", "Ankara", arr);
+        System.out.println(path);
     }
 
     private static void readNetwork() throws IOException {
@@ -19,14 +24,14 @@ public class Main {
         String type = bf.readLine();
         while(type != null){
             switch (type) {
-                case "Airway" -> readMatrix("A", bf);
-                case "Railway" -> readMatrix("R", bf);
-                case "Highway" -> readMatrix("H", bf);
+                case "Airway" -> readMatrix(TransportationType.AIRWAY, bf);
+                case "Railway" -> readMatrix(TransportationType.RAILWAY, bf);
+                case "Highway" -> readMatrix(TransportationType.HIGHWAY, bf);
             }
             type = bf.readLine();
         }
     }
-    private static void readMatrix(String type, BufferedReader bf) throws IOException {
+    private static void readMatrix(TransportationType type, BufferedReader bf) throws IOException {
         if(graph == null){
             cities = bf.readLine().replace("Cities", "").trim().split(" ");
             graph = new Graph(cities);
