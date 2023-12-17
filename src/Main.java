@@ -14,7 +14,7 @@ public class Main {
     }
 
     private static void readNetwork() throws IOException {
-        File input = new File("transportation_network.txt");
+        File input = new File("transportation_network.inp");
         BufferedReader bf = new BufferedReader(new FileReader(input));
         String type = bf.readLine();
         while(type != null){
@@ -29,7 +29,7 @@ public class Main {
     private static void readMatrix(String type, BufferedReader bf) throws IOException {
         if(graph == null){
             cities = bf.readLine().replace("Cities", "").trim().split(" ");
-            graph = new Graph(cities.length, cities);
+            graph = new Graph(cities);
         }
         else //reads cities line
             bf.readLine();
@@ -37,7 +37,7 @@ public class Main {
             String[] temp = bf.readLine().replace(cities[i], "").trim().split(" ");
             for(int j = 0; j < temp.length; j++){
                 if(temp[j].equals("1")){
-                    graph.addEdges(i,j,type);
+                    graph.addEdges(cities[i],cities[j],type);
                 }
             }
         }
