@@ -38,11 +38,11 @@ public class Main {
         }
         else //reads cities line
             bf.readLine();
-        for(int i = 0; i < cities.length; i++){
-            String[] temp = bf.readLine().replace(cities[i], "").trim().split(" ");
-            for(int j = 0; j < temp.length; j++){
-                if(temp[j].equals("1")){
-                    graph.addEdges(cities[i],cities[j],type);
+        for (String city : cities) {
+            String[] temp = bf.readLine().replace(city, "").trim().split(" ");
+            for (int j = 0; j < temp.length; j++) {
+                if (temp[j].equals("1")) {
+                    graph.addEdges(city, cities[j], type);
                 }
             }
         }

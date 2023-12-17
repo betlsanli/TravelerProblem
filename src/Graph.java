@@ -4,8 +4,8 @@ import java.util.Collections;
 import java.util.HashMap;
 
 public class Graph {
-    private HashMap<String, ArrayList<Edge>> network;
-    private ArrayList<String> cities;
+    private final HashMap<String, ArrayList<Edge>> network;
+    private final ArrayList<String> cities;
 
 
     public Graph(String[] cities){
@@ -36,24 +36,14 @@ public class Graph {
         for(Edge edge : edges){
             if(!visited[cities.indexOf(edge.toCity())] && conditions[edge.getType().index] > 0){
                 conditions[edge.getType().index]--;
-
-                //optimization. if conditions are not met yet, do no go to destination. Prevents from unnecessary path exploration
-                if(edge.toCity().equals(to)){
-                    if(!checkConditions(conditions)){
-                        conditions[edge.getType().index]++;
-                        continue;
-                    }
-                }
-
                 String res = query1dfs(edge.toCity(), to, conditions,visited,path + edge);
-                conditions[edge.getType().index]++;
-
+                conditions[edge.getType().index]++; //backtrack
                 if (res != null) {
                     return res;
                 }
             }
         }
-        visited[cities.indexOf(from)] = false;
+        visited[cities.indexOf(from)] = false;//backtrack
         return null;
     }
 
