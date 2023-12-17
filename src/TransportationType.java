@@ -10,4 +10,12 @@ public enum TransportationType {
         this.abbreviation = c;
         this.index = index;
     }
+    public static TransportationType getTransportationType(char abbreviation){
+        return switch (abbreviation) {
+            case 'A' -> AIRWAY;
+            case 'R' -> RAILWAY;
+            case 'H' -> HIGHWAY;
+            default -> null;
+        };
+    }
 }

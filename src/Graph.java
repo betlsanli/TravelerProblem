@@ -14,12 +14,30 @@ public class Graph {
     }
 
     public void addEdges(String from, String to, TransportationType type){
-        network.computeIfAbsent(from, v -> new ArrayList<>()).add(new Edge(to, type));
-//        assuming matrix is correct, edges will be bidirectional when edges of to is being added anyway
-//        network.computeIfAbsent(to, v -> new ArrayList<>()).add(new Edge(from, type));
+        if(!cities.contains(from))
+            throw new IllegalOperationException("Graph does not have the city " + from);
+        if(!cities.contains(to))
+            throw new IllegalOperationException("Graph does not have the city " + to);
+        ArrayList<Edge> edges = network.computeIfAbsent(from, v -> new ArrayList<>());
+        Edge edge = new Edge(to, type);
+        if(!edges.contains(edge))
+            edges.add(edge);
+        edges = network.computeIfAbsent(to, v -> new ArrayList<>());
+        edge = new Edge(from, type);
+        if(!edges.contains(edge))
+            edges.add(edge);
+    }
+    public void addCity(String city){
+        if(cities.contains(city))
+            throw new IllegalOperationException("City already exists");
+        cities.add(city);
     }
 
     public String query1(String from, String to, int[] conditions){
+        if(!cities.contains(from))
+            throw new IllegalOperationException("Graph does not have the city " + from);
+        if(!cities.contains(to))
+            throw new IllegalOperationException("Graph does not have the city " + to);
         boolean[] visited = new boolean[cities.size()];
         return query1dfs(from, to, conditions, visited, from + " ");
     }
@@ -56,6 +74,10 @@ public class Graph {
     }
 
     public ArrayList<String> query2(String from, String to, int n){
+        if(!cities.contains(from))
+            throw new IllegalOperationException("Graph does not have the city " + from);
+        if(!cities.contains(to))
+            throw new IllegalOperationException("Graph does not have the city " + to);
         boolean[] visited = new boolean[cities.size()];
         ArrayList<String> allPaths =new ArrayList<>();
         query2dfs(from, to, n, visited, from + " ", allPaths);
@@ -78,6 +100,10 @@ public class Graph {
     }
 
     public ArrayList<String> query3(String from,String to, TransportationType type){
+        if(!cities.contains(from))
+            throw new IllegalOperationException("Graph does not have the city " + from);
+        if(!cities.contains(to))
+            throw new IllegalOperationException("Graph does not have the city " + to);
         boolean[] visited = new boolean[cities.size()];
         ArrayList<String> allPaths =new ArrayList<>();
         query3dfs(from, to, type, visited, from + " ", allPaths);

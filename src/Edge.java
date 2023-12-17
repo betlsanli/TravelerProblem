@@ -1,4 +1,4 @@
-public class Edge {
+public class Edge{
 
     private String toCity;
     private TransportationType type;
@@ -19,5 +19,13 @@ public class Edge {
     @Override
     public String toString() {
         return type.abbreviation + "-" + toCity + " ";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Edge){
+            return toCity.equals(((Edge) obj).toCity) && type == ((Edge) obj).type;
+        }
+        return false;
     }
 }

@@ -1,0 +1,18 @@
+Q2 Istanbul Ankara 1
+[Istanbul A-Hatay H-Ankara , Istanbul A-Izmir A-Ankara , Istanbul A-Izmir R-Ankara , Istanbul A-Izmir H-Ankara , Istanbul A-Kayseri H-Ankara , Istanbul R-Izmir A-Ankara , Istanbul R-Izmir R-Ankara , Istanbul R-Izmir H-Ankara , Istanbul H-Hatay H-Ankara , Istanbul H-Izmir A-Ankara , Istanbul H-Izmir R-Ankara , Istanbul H-Izmir H-Ankara , Istanbul H-Kayseri H-Ankara ]
+Q3 Istanbul Ankara H
+[Istanbul H-Ankara , Istanbul H-Hatay H-Ankara , Istanbul H-Hatay H-Urfa H-Ankara , Istanbul H-Hatay H-Urfa H-Izmir H-Ankara , Istanbul H-Hatay H-Izmir H-Ankara , Istanbul H-Hatay H-Izmir H-Urfa H-Ankara , Istanbul H-Hatay H-Kayseri H-Ankara , Istanbul H-Izmir H-Ankara , Istanbul H-Izmir H-Hatay H-Ankara , Istanbul H-Izmir H-Hatay H-Urfa H-Ankara , Istanbul H-Izmir H-Hatay H-Kayseri H-Ankara , Istanbul H-Izmir H-Urfa H-Ankara , Istanbul H-Izmir H-Urfa H-Hatay H-Ankara , Istanbul H-Izmir H-Urfa H-Hatay H-Kayseri H-Ankara , Istanbul H-Kayseri H-Ankara , Istanbul H-Kayseri H-Hatay H-Ankara , Istanbul H-Kayseri H-Hatay H-Urfa H-Ankara , Istanbul H-Kayseri H-Hatay H-Urfa H-Izmir H-Ankara , Istanbul H-Kayseri H-Hatay H-Izmir H-Ankara , Istanbul H-Kayseri H-Hatay H-Izmir H-Urfa H-Ankara ]
+Q1 Istanbul Ankara A1 R2 H1
+Istanbul H-Hatay R-Kayseri R-Izmir A-Ankara 
+ADD City Ankara
+City already exists
+ADD Path Ankara Kars A
+Graph does not have the city Kars
+ADD City Kars
+City added
+Q3 Istanbul Kars A
+Path not found
+ADD Path Ankara Kars A
+Path added
+Q3 Istanbul Kars A
+[Istanbul A-Izmir A-Kayseri A-Hatay A-Urfa A-Ankara A-Kars , Istanbul A-Izmir A-Kayseri A-Urfa A-Ankara A-Kars , Istanbul A-Izmir A-Ankara A-Kars , Istanbul A-Ankara A-Kars , Istanbul A-Hatay A-Kayseri A-Izmir A-Ankara A-Kars , Istanbul A-Hatay A-Kayseri A-Urfa A-Ankara A-Kars , Istanbul A-Hatay A-Urfa A-Kayseri A-Izmir A-Ankara A-Kars , Istanbul A-Hatay A-Urfa A-Ankara A-Kars , Istanbul A-Kayseri A-Izmir A-Ankara A-Kars , Istanbul A-Kayseri A-Hatay A-Urfa A-Ankara A-Kars , Istanbul A-Kayseri A-Urfa A-Ankara A-Kars ]

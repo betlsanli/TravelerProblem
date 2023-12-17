@@ -1,0 +1,9 @@
+Q2 Istanbul Ankara 1
+Q3 Istanbul Ankara H
+Q1 Istanbul Ankara A1 R2 H1
+ADD City Ankara
+ADD Path Ankara Kars A
+ADD City Kars
+Q3 Istanbul Kars A
+ADD Path Ankara Kars A
+Q3 Istanbul Kars A
