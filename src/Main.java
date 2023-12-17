@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -8,6 +9,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         readNetwork();
         System.out.println(graph);
+        ArrayList<String> paths = graph.query2("Istanbul", "Ankara", 1);
+        System.out.println(paths);
     }
 
     private static void readNetwork() throws IOException {

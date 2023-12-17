@@ -1,13 +1,14 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Graph {
     private ArrayList<ArrayList<String>> matrix;
-    private String[] cities;
+    private ArrayList<String> cities;
 
 
     public Graph(int cap, String[] cities){
         matrix = new ArrayList<ArrayList<String>>(cap);
-        this.cities = cities;
+        this.cities = new ArrayList<>(Arrays.asList(cities));
         initMatrix(cap);
     }
 
@@ -35,6 +36,37 @@ public class Graph {
         else if(!types.contains(type)){
             list.set(to, types+type);
         }
+    }
+
+    private int indexOf(String city){
+        return cities.indexOf(city);
+    }
+
+    public ArrayList<String> query2(String from, String to, int n){
+        boolean[] visited = new boolean[cities.size()];
+        ArrayList<String> allPaths =new ArrayList<>();
+        query2dfs(indexOf(from), indexOf(to), n, visited, from + " ", allPaths);
+        return allPaths;
+    }
+    private void query2dfs(int from, int to, int n, boolean[] visited, String currentPath, ArrayList<String> allPaths){
+        visited[from] = true;
+
+        if(from == to && n == -1){
+            allPaths.add(currentPath);
+        }
+        else{
+            for(int i = 0; i < cities.size(); i++){
+                if(i == from)
+                    continue;
+                String edges = matrix.get(from).get(i);
+                if(edges != null && !visited[i]){
+                    for(int j = 0; j < edges.length(); j++){
+                        query2dfs(i , to, n-1, visited, currentPath + edges.charAt(j) + " " + cities.get(i) + " ", allPaths);
+                    }
+                }
+            }
+        }
+        visited[from] = false;
     }
 
     @Override
