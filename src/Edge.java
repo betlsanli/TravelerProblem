@@ -1,4 +1,5 @@
 public class Edge {
+
     private String toCity;
     private String type;
 
@@ -7,8 +8,16 @@ public class Edge {
         this.type = type;
     }
 
+    public String toCity() {
+        return toCity;
+    }
+
+    public String getType() {
+        return type;
+    }
+
     @Override
     public String toString() {
-        return type + " " + toCity + " ";
+        return type + "-" + toCity + " ";
     }
 }
